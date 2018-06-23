@@ -1,0 +1,39 @@
+p#notice
+  = notice
+h1
+  | Episodes
+table
+  thead
+    tr
+      th
+        | Title
+      th
+        | Url
+      th
+        | Guid
+      th
+        | Published on
+      th
+        | Description
+      th[colspan="3"]
+  tbody
+    - @episodes.each do |episode|
+      tr
+        td
+          = link_to episode.title, rails_blob_path(episode.media, disposition: "attachment") if episode.media.attachment
+        td
+          = episode.url
+        td
+          = episode.guid
+        td
+          = episode.published_on
+        td
+          = episode.description
+        td
+          = link_to 'Show', episode
+        td
+          = link_to 'Edit', edit_episode_path(episode)
+        td
+          = link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Episode', new_episode_path

@@ -1,0 +1,33 @@
+p#notice
+  = notice
+/ .row
+/   .col-4
+/   .col-4
+/     = image_tag @podcast.logo.variant(resize: "300x300")
+  .col-4
+.row
+  .col-12
+    h1
+     = @podcast.name
+.row
+  .col-2.offset-md-10
+    = button_to "Download new episodes", update_podcast_path(@podcast), remote: true, method: :post, class: "btn btn-success"
+br
+.row
+  - @podcast.episodes.each do |episode|
+    .col-md-3 style="margin-bottom:5px;"
+      .card style=("width: 18rem;")
+        = image_tag @podcast.logo.variant(resize: "100x100"), class: "card-img-top"
+        .card-body
+          h5.card-title
+            = episode.title
+          p.card-text
+            = raw episode.description
+          - if episode.media.attached?
+            = link_to :download, rails_blob_path(episode.media, disposition: "attachment"), class: "btn btn-primary"
+    .col-md-1
+.row
+  .col-3.ml-md-auto
+    = link_to 'Edit', edit_podcast_path(@podcast)
+    | |
+    =  link_to 'Back', podcasts_path
