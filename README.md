@@ -1,6 +1,5 @@
-# Podcacher
-## Offline Podcast server
----
+# Podcacher -- Offline Podcast server
+
 ## Purpose
 I am a sailor. Just about the only time that I have time to listen to podcasts is on night watch.
 Often I will be away from unlimited high speed internet for months at a time. As a result,
