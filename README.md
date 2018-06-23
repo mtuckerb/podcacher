@@ -21,15 +21,21 @@ from the remote server. It will skip any episodes that already have a media file
 ## Installation
 ### Prerequisites
 ruby 2.4 or greater
+
 rubygems
-bundler `gem install bundler`
+
+bundler (`gem install bundler`)
 
 ## Steps
 clone this repository
 `cd podcacher`
+
 `bundle install`
+
 `rails db:setup`
+
 `rails db:migrate`
+
 
 
 ## Todo
