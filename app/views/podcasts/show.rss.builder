@@ -39,7 +39,7 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
         xml.title episode.title
         xml.description episode.description
         xml.pubDate episode.created_at.to_s(:rfc822)
-        xml.enclosure :url => url_for(episode.media), :length => episode.media.blob.byte_size, :type => episode.media.blob.content_type
+        xml.enclosure :url => polymorphic_url(episode.media), :length => episode.media.blob.byte_size, :type => episode.media.blob.content_type
         xml.link episode_url(episode)
         xml.guid({:isPermaLink => "false"}, episode.guid)
         xml.itunes :author, author
