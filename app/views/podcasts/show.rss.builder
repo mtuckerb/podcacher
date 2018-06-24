@@ -34,6 +34,7 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
     # end
 
     @episodes.each do  |episode|
+        next unless episode.media.attached?
       xml.item do
         xml.title episode.title
         xml.description episode.description
