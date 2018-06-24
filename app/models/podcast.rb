@@ -26,7 +26,7 @@ class Podcast < ApplicationRecord
   end
 
   def update_from_feed
-      response = HTTParty.get url
+      response = HTTParty.get Feedbag.find(url)
       feed = RSS::Parser.parse response.body, false
       podcast = update(name: feed.channel&.title,
              url: feed.channel&.link&.strip,
