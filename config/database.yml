@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: podcacher_production
-  username: podcacher
-  password: <%= ENV['PODCACHER_DATABASE_PASSWORD'] %>

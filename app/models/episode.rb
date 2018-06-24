@@ -11,8 +11,8 @@ class Episode < ApplicationRecord
 
   def download_media_from_local_cache(basedir:)
     self.media.attach(io: File.open(File.join(basedir, self.filename_from_url)), filename: filename_from_url)
-  rescue
-    puts "Media not found #{File.join(basedir, self.filename_from_url)}"
+  rescue => e
+    puts "#{e}: #{File.join(basedir, self.filename_from_url)}"
   end
 
 
