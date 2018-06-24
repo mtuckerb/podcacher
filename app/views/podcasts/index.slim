@@ -8,7 +8,7 @@ h1 Podcasts
     - @podcasts.each do |podcast|
       .col-md-3 style="margin-bottom:5px;"
         .card style=("width: 18rem;")
-          = image_tag podcast.logo.variant(resize: "100x100"), class: "card-img-top"
+          = image_tag podcast.logo.variant(resize: "100x100"), class: "card-img-top" if podcast.logo.attached?
           .card-body
             h5.card-title
               = podcast.name
