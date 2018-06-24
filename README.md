@@ -39,4 +39,5 @@ clone this repository
 
 
 ## Todo
-Definitely scheduling would be nice. Also one off episode downloads
+* Definitely scheduling would be nice. Also one off episode downloads
+* A mechanism for exporting podcasts and media for import into another instance
