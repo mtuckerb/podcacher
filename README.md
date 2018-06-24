@@ -21,16 +21,30 @@ from the remote server. It will skip any episodes that already have a media file
 ## Installation
 ### Prerequisites
 ruby 2.4 or greater
+
 rubygems
-bundler `gem install bundler`
+
+bundler (`gem install bundler`)
+
+postgesql (database server)
+
+redis server (for backgrounding)
 
 ## Steps
 clone this repository
 `cd podcacher`
+
 `bundle install`
+
 `rails db:setup`
+
 `rails db:migrate`
+
+`rails server` This will start the rails server (in development mode) on port 3000. This should be fine for most cases, but if you would like to run in production mode, you'll need to do some more setup.
+
 
 
 ## Todo
-Definitely scheduling would be nice. Also one off episode downloads
+* Definitely scheduling would be nice. Also one off episode downloads
+* A mechanism for exporting podcasts and media for import into another instance
+* maybe make development use sqlite3 so folks don't have to set up postgres
