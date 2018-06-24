@@ -4,19 +4,20 @@ h1 Podcasts
 = link_to 'New Podcast', new_podcast_path
 
 .row
-  - @podcasts.each do |podcast|
-    .col-md-3 style="margin-bottom:5px;"
-      .card style=("width: 18rem;")
-        = image_tag podcast.logo.variant(resize: "100x100"), class: "card-img-top"
-        .card-body
-          h5.card-title
-            = podcast.name
-          p.card-text
-            = raw podcast.description
-          = text_field_tag "RSS Feed", podcast_url(id: podcast, format: :rss), style: "width:100%;"
-          br
-          br
-          = link_to "View", podcast_path(podcast), class: "btn btn-primary"
-          | &nbsp;
-          = link_to 'Destroy', podcast, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"
+  - if @podcasts.size > 0
+    - @podcasts.each do |podcast|
+      .col-md-3 style="margin-bottom:5px;"
+        .card style=("width: 18rem;")
+          = image_tag podcast.logo.variant(resize: "100x100"), class: "card-img-top"
+          .card-body
+            h5.card-title
+              = podcast.name
+            p.card-text
+              = raw podcast.description
+            = text_field_tag "RSS Feed", podcast_url(id: podcast, format: :rss), style: "width:100%;"
+            br
+            br
+            = link_to "View", podcast_path(podcast), class: "btn btn-primary"
+            | &nbsp;
+            = link_to 'Destroy', podcast, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"
     .col-md-1
