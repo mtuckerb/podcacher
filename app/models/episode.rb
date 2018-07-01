@@ -7,6 +7,7 @@ class Episode < ApplicationRecord
   def download_media
     download = open(url)
     self.media.attach(io: download, filename: filename_from_url)
+    return self.media.attached?
   end
 
   def download_media_from_local_cache(basedir:)
